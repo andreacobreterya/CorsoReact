@@ -21,14 +21,21 @@ export default class UserDetailsC
         this.state = new UserDetailsCState(this.props.user);
     }
 
+    handleToggle = (evt: React.MouseEvent) => {
+        this.setState({ panelOpen: !this.state.panelOpen });
+    };
+
     render(): JSX.Element {
         return(<div>
-            <h1>User {this.state.user.employeeNumber} Details (C)</h1>
-            <div className = {this.state.panelOpen ? "" : "hidden" }>
+            <h1 onClick={this.handleToggle}>
+                User {this.state.user.employeeNumber} Details (C)
+            </h1>
+            { this.state.panelOpen ? (
+                <div>
                 <h3>ID: {this.state.user.id}</h3>
                 <h3>UserName: {this.state.user.userName}</h3>
                 <h3>Dept: {this.state.user.dept}</h3>
-            </div>
+            </div>) : (<h3>Click on the header to show details ...</h3>)}
         </div>);
     }
 }

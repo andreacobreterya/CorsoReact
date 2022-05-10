@@ -40,3 +40,9 @@
 .hidden {
   display: none;
 }
+
+.error {
+  background-color: crimson;
+  color: white;
+  font-weight: bold;
+}
